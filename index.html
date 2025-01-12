@@ -197,7 +197,7 @@
                 <option value="tour">Tour Package</option>
                 <option value="hotel">Hotel Reservation</option>
             </select>
-            
+
               <input type="date" placeholder="Date of Travel" required>
               <input type="text" placeholder="From" required>
               <input type="text" placeholder="To" required>              
@@ -349,13 +349,15 @@ document.getElementById("subscribeButton").addEventListener("click", function ()
   const messageDiv = document.getElementById("message");
   const email = emailInput.value.trim();
 
-  if (!validateEmail(email)) {
+  if (!validateEmail(email) || emailInput == "") {
     messageDiv.textContent = "Please enter a valid email address.";
     messageDiv.style.color = "red";     
-  }       
+  }
+
+  else{
   messageDiv.textContent = "Your subscription request has been sent. Thank you!";
   messageDiv.style.color = "green";
-
+}
   // Clear input field
   emailInput.value = "";
 
