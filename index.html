@@ -186,13 +186,24 @@
             <button class="close-btn" onclick="closePopup()">&times;</button>
             <h2>Service Booking</h2>
             <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="date" placeholder="Date of Travel" required>
-                <input type="text" placeholder="From" required>
-                <input type="text" placeholder="To" required>
-                <button type="submit">Submit</button>
-            </form>
+              <input type="text" placeholder="Name" required>
+              <input type="email" placeholder="Email" required>
+              <input type="tel" placeholder="Mobile No" required>
+              
+              <select required>
+                <option value="" disabled selected>Select Mode of Travel</option>
+                <option value="air">Flight Ticket</option>
+                <option value="train">Train Ticket</option>
+                <option value="tour">Tour Package</option>
+                <option value="hotel">Hotel Reservation</option>
+            </select>
+            
+              <input type="date" placeholder="Date of Travel" required>
+              <input type="text" placeholder="From" required>
+              <input type="text" placeholder="To" required>              
+              <button type="submit">Submit</button>
+          </form>
+          
         </div>
     </div>
 
