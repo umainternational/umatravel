@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Popup Forms</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .popup-form h2 {
+            margin: 0 0 15px;
+        }
+
+        .popup-form input,
+        .popup-form select,
+        .popup-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .popup-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .popup-form .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function openPopup(serviceType) {
+            document.querySelector(".popup-overlay").style.display = "flex";
+            document.querySelector(".popup-form h2").textContent = `${serviceType} Booking`;
+        }
+
+        function closePopup() {
+            document.querySelector(".popup-overlay").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <section id="featured-services" class="featured-services section">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-item item-cyan">
+                        <div class="icon">
+                            <i class="bi bi-airplane"></i>
+                        </div>
+                        <button onclick="openPopup('Flight')" class="stretched-link">Flight Ticket</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-item item-orange">
+                        <div class="icon">
+                            <i class="bi bi-train-front"></i>
+                        </div>
+                        <button onclick="openPopup('Train')" class="stretched-link">Train Ticket</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-item item-teal">
+                        <div class="icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <button onclick="openPopup('Tour')" class="stretched-link">Tour Packages</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-item item-red">
+                        <div class="icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <button onclick="openPopup('Hotel')" class="stretched-link">Hotel Booking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="popup-overlay">
+        <div class="popup-form">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            <h2>Service Booking</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="date" placeholder="Date" required>
+                <select required>
+                    <option value="">Select Destination</option>
+                    <option value="destination1">Destination 1</option>
+                    <option value="destination2">Destination 2</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
