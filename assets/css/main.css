@@ -528,6 +528,18 @@ h6 {
   border-color: var(--accent-color);
 }
 
+.bi-x{
+  position: relative;
+  right: 18px;
+  top: -29px;
+  font-size: xxx-large;
+  color: black;
+}
+
+.bi-x:hover{
+  color: var(--background-color);
+}
+
 .footer .footer-newsletter .newsletter-form input[type=email] {
   border: 0;
   padding: 4px;
@@ -1200,15 +1212,15 @@ section,
 }
 
 .popup-form button:hover {
-    background-color: #0056b3;
+    background-color: #ff0000;
 }
 
 .popup-form .close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #f44336;
-    color: white;
+    background: none;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 50%;
     width: 30px;
