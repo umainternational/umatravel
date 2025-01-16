@@ -537,7 +537,7 @@ h6 {
 }
 
 .bi-x:hover{
-  color: var(--background-color);
+  color: var(--red-color);
 }
 
 .footer .footer-newsletter .newsletter-form input[type=email] {
@@ -1211,9 +1211,9 @@ section,
     cursor: pointer;
 }
 
-.popup-form button:hover {
+/* .popup-form button:hover {
     background-color: #ff0000;
-}
+} */
 
 .popup-form .close-btn {
     position: absolute;
