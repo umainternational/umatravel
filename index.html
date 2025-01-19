@@ -185,30 +185,65 @@
         <div class="popup-form">
             <button class="close-btn" onclick="closePopup()"><i class="bi bi-x"></i></button>
             <h2></h2>
-            <form>
-              <input type="text" placeholder="Name" required>
-              <input type="email" placeholder="Email" required>
-              <input type="tel" placeholder="Mobile No" required>
+            <form id="Service-form" method="post" role="form">
+              <input type="text" placeholder="Name" id="name" required>
+              <input type="email" placeholder="Email" id="email" required>
+              <input type="tel" placeholder="Mobile No" id="mobile" required>
               
-              <select required>
-                <option value="" disabled selected>Select Mode of Travel</option>
-                <option value="air">Flight Ticket</option>
-                <option value="train">Train Ticket</option>
-                <option value="tour">Tour Package</option>
-                <option value="hotel">Hotel Reservation</option>
+              <select id="modeOfService" required>
+                <option value="" disabled selected>Select a Mode of Service</option>
+                <option value="Fight Ticket">Flight Ticket</option>
+                <option value="Train Ticket">Train Ticket</option>
+                <option value="Tour Package">Tour Package</option>
+                <option value="Hotel Reservation">Hotel Reservation</option>
             </select>
 
-              <input type="date" placeholder="Date of Travel" required>
-              <input type="text" placeholder="From" required>
-              <input type="text" placeholder="To" required>              
-              <button type="submit">Submit</button>
+              <input type="date" placeholder="Date of Travel" id="date" required>
+              <input type="text" placeholder="From" id="travelFrom" required>
+              <input type="text" placeholder="To" id="travelTo" required>              
+              <button type="submit" id="submit">Submit</button>
           </form>
           
         </div>
     </div>
 
     </section><!-- /Featured Services Section -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init({
+            publicKey: "DWQPGNykb9EKvGLqh",
+          });
+    })();
 
+      document.getElementById("Service-form").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent the default form submission behavior
+
+          // Collect form data
+          const formData = {
+              name: this.name.value,
+              email: this.email.value,
+              mobile: this.mobile.value,
+              modeOfService: this.modeOfService.value,
+              date: this.date.value,
+              travelFrom: this.travelFrom.value,
+              travelTo: this.travelTo.value
+          };
+    
+          // Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, and YOUR_PUBLIC_KEY
+          emailjs.send("service_yxwqvti", "template_jx9af5n", formData)
+              .then(function(response) {
+                  alert("Service Requested successfully!");
+                  console.log("Success!", response.status, response.text);
+                  document.getElementById("Service-form").reset();
+                  closePopup();
+              })
+              .catch(function(error) {
+                  alert("Failed to send email. Please try again.");
+                  console.log("Error:", error);
+              });
+      });
+    </script>
     <!-- About Section -->
     <section id="about" class="about section light-background">
 
