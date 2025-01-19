@@ -236,7 +236,9 @@
                   alert("Service Requested successfully!");
                   console.log("Success!", response.status, response.text);
                   document.getElementById("Service-form").reset();
+                  setTimeout(() => {
                   closePopup();
+                  }, 2000);
               })
               .catch(function(error) {
                   alert("Failed to send email. Please try again.");
